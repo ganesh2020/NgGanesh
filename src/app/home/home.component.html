@@ -1,0 +1,47 @@
+
+<h1>Basics of Angular</h1>
+
+<div class="inc-container">
+    <p>You've clicked 
+        <span 
+        (click)="counterClick()"
+        >this</span>
+        {{ counterValue }} times!
+    </p>
+  
+</div>
+
+<div class="inc-container">
+    <p>
+        <input type="text" [(ngModel)]="name" >
+        <br>
+        <strong>You said </strong> {{ name }}
+    </p>
+    
+</div>
+
+<div class="inc-container">
+    <p> counter value is
+    <strong>
+        <ng-template [ngIf]="counterValue > 6" [ngIfElse]="none" >
+            GREATER 
+        </ng-template>
+        <ng-template #none>
+            Less
+        </ng-template>
+    </strong>
+    than 6 
+    </p>
+    
+</div>
+
+<div [ngClass]="resolveStyles()" >
+    <ng-container *ngIf="name != ''; else elseTemplate">
+        <p>issue resolved</p>
+    </ng-container>
+    <ng-template #elseTemplate>
+        <p>issue not resolved</p>
+    </ng-template>
+    <span class="tooltiptext">enter text in input field to resolve </span>
+</div>
+    
